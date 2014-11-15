@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class RunUT
 {
-    public static void RunPlan(string name)
+    public static void RunPlan()
     {
-        UTAutomationPlan thePlan = UTomate.UTAutomationPlanByName(name);
+        UTAutomationPlan thePlan = UTomate.UTAutomationPlanByName("Prepare");
         if (thePlan == null)
         {
-            throw new ArgumentException("There is no plan named '" + name + "'");
+            throw new ArgumentException("There is no plan.");
         }
 
         UTomate.Run(thePlan);
