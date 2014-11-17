@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RunUT
 {
-    public static void RunPlan()
+    public static IEnumerator RunPlan()
     {
         Debug.LogWarning("About to run a plan.");
         UTPreferences.DebugMode = true;
@@ -17,6 +17,12 @@ public class RunUT
         Debug.LogWarning("Running the plan now.");
         UTomate.Run(thePlan);
         var took = Time.realtimeSinceStartup - start;
+        while (UTomateRunner.Instance.IsRunning)
+        {
+            Debug.LogWarning("Still running. Still Running.");
+            yield return 0;
+        }
+
         Debug.LogWarning("Plan ran. Took " + took + "ms");
     }
 }
