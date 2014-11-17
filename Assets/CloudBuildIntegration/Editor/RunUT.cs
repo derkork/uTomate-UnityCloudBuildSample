@@ -19,7 +19,7 @@ public class RunUT
         var took = Time.realtimeSinceStartup - start;
         while (UTomateRunner.Instance.IsRunning)
         {
-            Debug.LogWarning("Waiting for utomate.");
+            UTomateRunner.Instance.ContinueRunning(); // it's single-threaded so we have to keep pushing.
         }
 
         Debug.LogWarning("Plan ran. Took " + took + "ms");
