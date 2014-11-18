@@ -5,7 +5,7 @@ namespace UnityCloud.API
     using System.Collections.Generic;
     using UnityEngine;
 
-#if UNITY_CLOUD
+#if UNITY_CLOUD_BUILD
     using UnityCloud;
 #endif
 
@@ -13,7 +13,7 @@ namespace UnityCloud.API
     {
         public static CloudBuildManifest GetBuildManifest()
         {
-#if  UNITY_CLOUD
+#if  UNITY_CLOUD_BUILD
             return new CloudBuildManifest(BuildManifestObject.LoadCloudBuildManifest());
 #else
             var result = new CloudBuildManifest();
