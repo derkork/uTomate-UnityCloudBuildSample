@@ -6,7 +6,10 @@ namespace UnityCloud.API
     using UnityEngine;
 
 #if UNITY_CLOUD_BUILD
+
+    using UnityEditor;
     using UnityCloud;
+
 #endif
 
     public class CloudBuildAPI
@@ -14,7 +17,8 @@ namespace UnityCloud.API
         public static CloudBuildManifest GetBuildManifest()
         {
 #if  UNITY_CLOUD_BUILD
-            return new CloudBuildManifest(BuildManifestObject.LoadCloudBuildManifest());
+            var manifest = (BuildManifestObject)AssetDatabase.LoadAssetAtPath("Assets/__UnityCloud__/Resources/UnityCloudBuildManifest.scriptable.asset", typeof(BuildManifestObject));
+            return new CloudBuildManifest(manifest);
 #else
             var result = new CloudBuildManifest();
             // add a few dummy values
