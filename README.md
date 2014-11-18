@@ -3,10 +3,9 @@
 This is an example project showing how to use uTomate (http://www.ancientlightstudios.com/utomate) with Unity's Cloud build solution.     
 
 
-
 ## General considerations
 
-Currently Unity Cloud Build supports two phases into which custom logic can be plugged - pre-Export (that is before a player is built) and post-export (after the player is built, but before any potential XCode build). That is not an aweful lot of flexibility, but it's a start. Right now you cannot have completely custom builds, and only time will tell, whether or not custom builds will be possible. For now we have to play with what is there.
+Currently Unity Cloud Build supports two phases into which custom logic can be plugged - pre-export (that is before a player is built) and post-export (after the player is built, but before any potential XCode build). That is not an awful lot of flexibility, but it's a start.
 
 ## Setup
 ### In your project
