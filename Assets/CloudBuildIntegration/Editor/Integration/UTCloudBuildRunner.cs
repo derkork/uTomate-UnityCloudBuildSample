@@ -19,7 +19,7 @@ namespace AncientLightStudios.UTomate.CloudBuild
             }
         }
 
-        public static void OnPostExport()
+        public static void OnPostExport(string currentlyIgnored)
         {
             var plan = UTUnityCloudBuildConfiguration.UnityCloudBuildConfiguration.runOnPostExport;
             if (plan != null)
