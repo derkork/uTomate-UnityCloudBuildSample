@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEditor;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class UTDumpTextAction : UTAction
         var fileName = file.EvaluateIn(context);
 
         var text = System.IO.File.ReadAllText(fileName);
-        Debug.Log(text);
+        Debug.Log(Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text)));
         yield break;
     }
 
