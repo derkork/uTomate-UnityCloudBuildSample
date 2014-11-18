@@ -25,8 +25,7 @@ Currently Unity Cloud Build supports two phases into which custom logic can be p
   * You may need to have the Unity guys unlock them for you, by filing a request.
 2. In "Pre-Export Method Name", enter: `AncientLightStudios.UTomate.CloudBuild.UTCloudBuildRunner.OnPreExport`
 3. In "Post-Export Method Name", enter: `AncientLightStudios.UTomate.CloudBuild.UTCloudBuildRunner.OnPostExport`
-4. (Optional): If you want to use the custom demo action for showing stuff from the cloud build manifest, please create a "Scripting Define Symbol" named `UNIT_CLOUD`.
-5. Save settings and run your build.
+4. Save settings and run your build.
 
 
 ## What currently doesn't work

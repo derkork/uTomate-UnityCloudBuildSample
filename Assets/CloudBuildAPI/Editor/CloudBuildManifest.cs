@@ -5,7 +5,7 @@ namespace UnityCloud.API
     // usings go INSIDE the namespace so they don't conflict with the rest
     using UnityEngine;
 
-#if UNITY_CLOUD
+#if UNITY_CLOUD_BUILD
     using UnityCloud;
 #endif
 
@@ -14,13 +14,13 @@ namespace UnityCloud.API
     /// </summary>
     public class CloudBuildManifest
     {
-#if UNITY_CLOUD
+#if UNITY_CLOUD_BUILD
         private BuildManifestObject buildManifestObject;
 #else
         private Dictionary<string, string> contents;
 #endif
 
-#if UNITY_CLOUD
+#if UNITY_CLOUD_BUILD
         internal CloudBuildManifest(BuildManifestObject buildManifestObject)
         {
             this.buildManifestObject = buildManifestObject;
@@ -144,7 +144,7 @@ namespace UnityCloud.API
 
         public string Get(string key, string defaultValue)
         {
-#if UNITY_CLOUD
+#if UNITY_CLOUD_BUILD
             return buildManifestObject.GetValue(key, defaultValue);
 #else
             string result;
@@ -158,7 +158,7 @@ namespace UnityCloud.API
 
         public void Set(string key, string value)
         {
-#if UNITY_CLOUD
+#if UNITY_CLOUD_BUILD
             buildManifestObject.SetValue(key, value);
 #else
             contents[key] = value;
