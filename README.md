@@ -15,6 +15,7 @@ Currently Unity Cloud Build supports two phases into which custom logic can be p
   * if you have a licensed copy of uTomate, you may want to replace the demo version in this project with your licensed copy. 
 2. Build some automation plans that you want to run in each of the phases. You don't need a plan for each phase, so e.g. if you don't need to do anything on pre-export, then you don't need to make a plan for this.
 3. Open the uTomate cloud build settings (Window -> uTomate -> Edit Cloud Build Configuration)
+  * You should see the cloud build configuration settings in the inspector: ![Inspector Image](docs/images/inspector_cloud_settings.png)
 4. Drag your automation plans into the appropriate phases.
 5. Enable debug mode, if you wish to.
 
