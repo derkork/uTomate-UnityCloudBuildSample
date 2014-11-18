@@ -5,14 +5,19 @@ using UnityEngine;
 
 public class UTDumpTextAction : UTAction
 {
-    public UTString file;
+    public UTString[] includes;
+    public UTString[] excludes;
 
     public override IEnumerator Execute(UTContext context)
     {
-        var fileName = file.EvaluateIn(context);
-
-        var text = System.IO.File.ReadAllText(fileName);
-        Debug.Log(Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text)));
+        var theIncludes = EvaluateAll(includes, context);
+        var theExcludes = EvaluateAll(excludes, context);
+        var files = UTFileUtils.CalculateFileset(UTFileUtils.ProjectAssets, theIncludes, theExcludes, UTFileUtils.FileSelectionMode.Files);
+        foreach (var file in files)
+        {
+            var text = System.IO.File.ReadAllText(file);
+            Debug.Log(file + "\n" + Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(text)));
+        }
         yield break;
     }
 
